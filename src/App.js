@@ -1,9 +1,11 @@
 import React from 'react';
-import Form from './components/Form';
+import SearchForm from './components/SearchForm';
+import RegistrationForm from './components/RegistrationForm';
 
 const App = () => (
   <>
-    <Form />
+    <SearchForm />
+    <RegistrationForm />
   </>
 );
 export default App;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import api from '../../config';
 
 const SearchForm = () => {
   const [CNPJ, setCNPJ] = useState('');
@@ -9,7 +10,7 @@ const SearchForm = () => {
   };
 
   const searchCNPJ = async () => {
-    fetch(`http://localhost:3000/companies?cnpj=${CNPJ}`)
+    fetch(`${api.baseUrl}/companies?cnpj=${CNPJ}`)
       .then((response) => response.json())
       .then((data) => (data.message ? 'deu pau' : setTransactions(data)));
   };

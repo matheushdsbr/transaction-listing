@@ -1,26 +1,11 @@
 {
-  "companies": [
+  "transactions": [
     {
-      "id": 1,
-      "cnpj": "45.283.163/0001-67",
-      "transactions": [
-        {
-          "client": "094.214.930-01",
-          "price": 590.01,
-          "description": "Almoço em restaurante chique pago via Shipay!"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "cnpj": "44.444.444/4444-44",
-      "transactions": [
-        {
-          "client": "111.111.111-11",
-          "price": 300.01,
-          "description": "cliente pirado!"
-        }
-      ]
+      "estabelecimento": "45.283.163/0001-67",
+      "cliente": "094.214.930-01",
+      "valor": 590.01,
+      "descricao": "Almoço em restaurante chique pago via Shipay!",
+      "id": 1
     }
   ]
 }

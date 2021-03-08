@@ -28,18 +28,14 @@ const RegistrationForm = () => {
   };
 
   const addData = () => {
-    fetch(`${api.baseUrl}/companies`, {
+    fetch(`${api.baseUrl}`, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({
-        cnpj: newData.cnpj,
-        transactions: [
-          {
-            client: newData.client,
-            price: newData.price,
-            description: newData.description,
-          },
-        ],
+        estabelecimento: newData.cnpj,
+        cliente: newData.client,
+        valor: newData.price,
+        descricao: newData.description,
       }),
     })
       .then((response) => response.json())

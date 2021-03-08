@@ -10,7 +10,7 @@ const SearchForm = () => {
   };
 
   const searchCNPJ = async () => {
-    fetch(`${api.baseUrl}/companies?cnpj=${CNPJ}`)
+    fetch(`${api.baseUrl}?estabelecimento=${CNPJ}`)
       .then((response) => response.json())
       .then((data) => (data.message ? 'deu pau' : setTransactions(data)));
   };
@@ -30,15 +30,10 @@ const SearchForm = () => {
 
       {transactions.map((item) => (
         <div key={item.id}>
-          <strong>CNPJ: {item.cnpj}</strong>
-          {item.transactions.map((transaction) => (
-            <div key={transaction.client}>
-              <p>CLIENT: {transaction.client}</p>
-              <p>PRICE: {transaction.price}</p>
-              <p>DESCRIPTION: {transaction.description}</p>
-              <hr />
-            </div>
-          ))}
+          <p>Cliente: {item.cliente}</p>
+          <p>Preço: {item.valor}</p>
+          <p>Descrição: {item.descricao}</p>
+          <hr />
         </div>
       ))}
     </div>

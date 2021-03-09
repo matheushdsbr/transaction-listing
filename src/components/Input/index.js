@@ -1,9 +1,12 @@
 import React from 'react';
-import { InputDefault } from './styles';
+import { InputContainer } from './styles';
 
-const Input = ({ onChange }) => (
+const Input = ({ name, onChange, value }) => (
   <>
-    <InputDefault onChange={onChange} />
+    <InputContainer>
+      <input type="text" id={name} value={value} onChange={onChange} required />
+      <label htmlFor={name}>{name}</label>
+    </InputContainer>
   </>
 );
 

@@ -6,7 +6,7 @@ export const InputContainer = styled.div`
 
   input {
     border-radius: 12px;
-    border: 1px solid blue;
+    border: 1px solid ${(props) => (props.error ? 'red' : 'blue')};
     color: #454550;
     height: 12px;
     outline: none;
@@ -15,12 +15,12 @@ export const InputContainer = styled.div`
     width: 100%;
 
     &:focus {
-      border: 1px solid green;
+      border: 1px solid ${(props) => (props.error ? 'red' : 'green')};
     }
 
     &:focus ~ label,
     &:valid ~ label {
-      color: green;
+      color: ${(props) => (props.error ? 'red' : 'green')};
       padding: 0px 8px;
       top: -20px;
     }
@@ -29,7 +29,7 @@ export const InputContainer = styled.div`
   label {
     background: white;
     border-radius: 12px;
-    color: blue;
+    color: ${(props) => (props.error ? 'red' : 'blue')};
     cursor: text;
     left: 0;
     margin-left: 15px;

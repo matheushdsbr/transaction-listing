@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../tokens/colors';
 
 export const InputContainer = styled.div`
   position: relative;
@@ -6,7 +7,8 @@ export const InputContainer = styled.div`
 
   input {
     border-radius: 12px;
-    border: 1px solid ${(props) => (props.error ? 'red' : 'blue')};
+    border: 1px solid
+      ${(props) => (props.error ? colors.negative : colors.primary)};
     color: #454550;
     height: 12px;
     outline: none;
@@ -16,12 +18,13 @@ export const InputContainer = styled.div`
     ${(props) => props.search && 'position: relative; padding-right: 60px;'}
 
     &:focus {
-      border: 1px solid ${(props) => (props.error ? 'red' : 'green')};
+      border: 1px solid
+        ${(props) => (props.error ? colors.negative : colors.primary)};
     }
 
     &:focus ~ label,
     &:valid ~ label {
-      color: ${(props) => (props.error ? 'red' : 'green')};
+      color: ${(props) => (props.error ? colors.negative : colors.primary)};
       padding: 0px 8px;
       top: -20px;
     }
@@ -30,7 +33,7 @@ export const InputContainer = styled.div`
   label {
     background: white;
     border-radius: 12px;
-    color: ${(props) => (props.error ? 'red' : 'blue')};
+    color: ${(props) => (props.error ? colors.negative : colors.primary)};
     cursor: text;
     left: 0;
     margin-left: 15px;

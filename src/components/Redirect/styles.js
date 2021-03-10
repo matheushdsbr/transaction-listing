@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../tokens/colors';
 
 export const ContainerRedirect = styled.div`
   margin-top: 20px;
@@ -8,7 +9,7 @@ export const ContainerRedirect = styled.div`
 
     a {
       display: inline-block;
-      color: blue;
+      color: ${colors.primary};
       text-decoration: none;
       font-weight: 500;
 
@@ -17,7 +18,7 @@ export const ContainerRedirect = styled.div`
         display: block;
         width: 0;
         height: 2px;
-        background: blue;
+        background: ${colors.primary};
         transition: width 0.2s;
       }
 

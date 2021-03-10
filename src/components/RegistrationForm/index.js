@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../config';
 import { TextError } from './styles';
 import Form from '../Form';
 import Input from '../Input';
 import Button from '../Button';
+import Redirect from '../Redirect';
 
 const RegistrationForm = () => {
   const [newCNPJ, setNewCNPJ] = useState('');
@@ -84,7 +86,7 @@ const RegistrationForm = () => {
         <div className="d-flex justify-content-center w-100">
           <h1>Cadastrar dados de transação</h1>
         </div>
-        <div className="col-4 offset-4">
+        <div className="col-12 col-md-4 offset-md-4">
           <Form onSubmit={handleSubmit}>
             <Input
               name="Estabelecimento"
@@ -120,6 +122,10 @@ const RegistrationForm = () => {
 
             <Button onClick={handleSubmit}>Cadastrar Transação</Button>
           </Form>
+
+          <Redirect>
+            <Link to="/">Clique aqui</Link> para buscar uma transação.
+          </Redirect>
 
           {(error === true && <TextError error>{Message}</TextError>) ||
             (success === true && <TextError success>{Message}</TextError>)}

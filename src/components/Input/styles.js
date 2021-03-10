@@ -13,6 +13,7 @@ export const InputContainer = styled.div`
     padding: 18px;
     transition: all 0.2s ease-out;
     width: 100%;
+    ${(props) => props.search && 'position: relative; padding-right: 60px;'}
 
     &:focus {
       border: 1px solid ${(props) => (props.error ? 'red' : 'green')};

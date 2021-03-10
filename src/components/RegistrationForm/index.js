@@ -48,12 +48,12 @@ const RegistrationForm = () => {
       }),
     })
       .then((response) => response.json())
-      .then((data) =>
-        data.message
-          ? setError(true)(
-              setMessage('*Não foi possivel cadastrar sua transação'),
-            )
-          : console.log(data),
+      .then(
+        (data) =>
+          data.message &&
+          setError(true)(
+            setMessage('*Não foi possivel cadastrar sua transação'),
+          ),
       );
 
     setNewCNPJ('');

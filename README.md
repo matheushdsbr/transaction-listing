@@ -29,7 +29,7 @@ Select 'yes' to start using port 3001, because the api is using port 3000.<br />
 ## How the project works
 
 ### Git
-To commit, use commitizen and its rules. <br />To learn more about the commitizen rules, [click here](https://github.com/commitizen/cz-cli)
+To commit, use commitizen. <br />To learn more about the commitizen rules, [click here](https://github.com/commitizen/cz-cli)
 
 ### Colors
 To add the colors go to the 'tokens' folder, and the 'colors' file and add or change the colors there.<br /><br />

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, FormContainer } from './styles';
 import api from '../../config';
 import Form from '../Form';
 import Input from '../Input';
+import Icon from '../../images/icon-search.svg';
+import Redirect from '../Redirect';
 
 const SearchForm = () => {
   const [CNPJ, setCNPJ] = useState('');
@@ -31,12 +34,18 @@ const SearchForm = () => {
             <h1>Buscar dados de transação</h1>
           </div>
 
-          <div className="col-4 offset-4">
+          <div className="col-12 col-md-4 offset-md-4">
             <FormContainer>
               <Form onSubmit={handleSubmit}>
-                <Input name="Estabelecimento" onChange={handleChange} />
+                <Input name="Estabelecimento" onChange={handleChange} search />
+                <img src={Icon} alt="ícone-de-busca" />
               </Form>
             </FormContainer>
+
+            <Redirect>
+              <Link to="/register">Clique aqui</Link> para cadastrar uma
+              transação.
+            </Redirect>
           </div>
 
           {transactions.map((item) => (

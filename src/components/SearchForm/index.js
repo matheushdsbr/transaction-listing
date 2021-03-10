@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, FormContainer } from './styles';
 import api from '../../config';
+import HeroText from '../HeroText';
 import Form from '../Form';
 import Input from '../Input';
 import Icon from '../../images/icon-search.svg';
@@ -31,7 +32,7 @@ const SearchForm = () => {
       <div className="row">
         <Container>
           <div className="d-flex justify-content-center">
-            <h1>Buscar dados de transação</h1>
+            <HeroText>Buscar dados de transação</HeroText>
           </div>
 
           <div className="col-12 col-md-4 offset-md-4">

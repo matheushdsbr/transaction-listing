@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../config';
 import { TextError } from './styles';
+import HeroText from '../HeroText';
 import Form from '../Form';
 import Input from '../Input';
 import Button from '../Button';
@@ -84,7 +85,7 @@ const RegistrationForm = () => {
     <div className="container">
       <div className="row">
         <div className="d-flex justify-content-center w-100">
-          <h1>Cadastrar dados de transação</h1>
+          <HeroText>Cadastrar dados de transação</HeroText>
         </div>
         <div className="col-12 col-md-4 offset-md-4">
           <Form onSubmit={handleSubmit}>

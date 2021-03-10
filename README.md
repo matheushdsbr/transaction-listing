@@ -1,6 +1,12 @@
 # Introduction
 
-In this project you will be able to register transaction data informing the establishment, customer, value and description. You can also search for the transaction you registered by informing the establishment and you will receive a list of all transactions carried out by the researched establishment.
+In this project you will be able to register transaction data informing the establishment, customer, value and description. You can also search for the transaction you registered by informing the establishment and you will receive a list of all transactions carried out by the researched establishment.<br /><br />
+
+## JSON-SERVER
+Use JSON-SERVER as an api, for requests such as get and post.<br />
+
+Get -> Search for data by establishment<br />
+Post-> Add new establishment data
 
 ## How to start the project
 

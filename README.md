@@ -37,6 +37,9 @@ Select 'yes' to start using port 3001, because the api is using port 3000.<br />
 ### Git
 To commit, use commitizen. <br />To learn more about the commitizen rules, [click here](https://github.com/commitizen/cz-cli)
 
+### Styles
+To stylize components use styled-components. <br />To learn more about styled-components, [click here](https://styled-components.com/)
+
 ### Colors
 To add the colors go to the 'tokens' folder, and the 'colors' file and add or change the colors there.<br /><br />
 These colors will be exported and you can access them using<br />```import colors from '../../ tokens / colors';```<br /><br />

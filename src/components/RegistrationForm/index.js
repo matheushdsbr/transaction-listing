@@ -11,7 +11,8 @@ const RegistrationForm = () => {
   const [newPrice, setNewPrice] = useState('');
   const [newDescription, setNewDescription] = useState('');
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [Message, setMessage] = useState('');
 
   const newData = {
     cnpj: newCNPJ,
@@ -51,6 +52,8 @@ const RegistrationForm = () => {
     setNewClient('');
     setNewPrice('');
     setNewDescription('');
+    setSuccess(true);
+    setMessage('*Transação cadastrada com sucesso!');
   };
 
   const handleSubmit = (event) => {
@@ -62,7 +65,7 @@ const RegistrationForm = () => {
       newDescription === ''
     ) {
       setError(true);
-      setErrorMessage('*Preencha todos os campos');
+      setMessage('*Preencha todos os campos');
     } else {
       setError(false);
       addData();
@@ -112,7 +115,8 @@ const RegistrationForm = () => {
             <Button onClick={handleSubmit}>Cadastrar Transação</Button>
           </Form>
 
-          {error === true && <TextError>{errorMessage}</TextError>}
+          {(error === true && <TextError error>{Message}</TextError>) ||
+            (success === true && <TextError success>{Message}</TextError>)}
         </div>
       </div>
     </div>

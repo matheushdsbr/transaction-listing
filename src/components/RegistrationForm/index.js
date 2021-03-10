@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../config';
+import { TextError } from './styles';
 import Form from '../Form';
 import Input from '../Input';
 import Button from '../Button';
@@ -9,6 +10,8 @@ const RegistrationForm = () => {
   const [newClient, setNewClient] = useState('');
   const [newPrice, setNewPrice] = useState('');
   const [newDescription, setNewDescription] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const newData = {
     cnpj: newCNPJ,
@@ -58,8 +61,10 @@ const RegistrationForm = () => {
       newPrice === '' ||
       newDescription === ''
     ) {
-      console.log('campos vazios');
+      setError(true);
+      setErrorMessage('*Preencha todos os campos');
     } else {
+      setError(false);
       addData();
     }
   };
@@ -76,6 +81,7 @@ const RegistrationForm = () => {
               name="Estabelecimento"
               value={newCNPJ}
               onChange={handleNewCNPJ}
+              error={error}
             />
             <div className="mb-4" />
 
@@ -83,21 +89,30 @@ const RegistrationForm = () => {
               name="Cliente"
               value={newClient}
               onChange={handleNewClient}
+              error={error}
             />
             <div className="mb-4" />
 
-            <Input name="Preço" value={newPrice} onChange={handleNewPrice} />
+            <Input
+              name="Preço"
+              value={newPrice}
+              onChange={handleNewPrice}
+              error={error}
+            />
             <div className="mb-4" />
 
             <Input
               name="Descrição"
               value={newDescription}
               onChange={handleNewDescription}
+              error={error}
             />
             <div className="mb-4" />
 
             <Button onClick={handleSubmit}>Cadastrar Transação</Button>
           </Form>
+
+          {error === true && <TextError>{errorMessage}</TextError>}
         </div>
       </div>
     </div>

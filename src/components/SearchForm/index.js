@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, FormContainer } from './styles';
+import { Container, ContainerTitle, ContainerList } from './styles';
 import api from '../../config';
 import HeroText from '../HeroText';
 import Form from '../Form';
@@ -11,6 +11,12 @@ import Redirect from '../Redirect';
 const SearchForm = () => {
   const [CNPJ, setCNPJ] = useState('');
   const [transactions, setTransactions] = useState([]);
+  const [resultTitle, setResultTitle] = useState('');
+
+  const handleSucess = (data) => {
+    setTransactions(data);
+    setResultTitle(CNPJ);
+  };
 
   const handleChange = (event) => {
     setCNPJ(event.target.value);
@@ -19,7 +25,7 @@ const SearchForm = () => {
   const searchCNPJ = async () => {
     fetch(`${api.baseUrl}?estabelecimento=${CNPJ}`)
       .then((response) => response.json())
-      .then((data) => (data.message ? 'deu pau' : setTransactions(data)));
+      .then((data) => handleSucess(data));
   };
 
   const handleSubmit = (event) => {
@@ -36,12 +42,12 @@ const SearchForm = () => {
           </div>
 
           <div className="col-12 col-md-4 offset-md-4">
-            <FormContainer>
+            <div>
               <Form onSubmit={handleSubmit}>
                 <Input name="Estabelecimento" onChange={handleChange} search />
                 <img src={Icon} alt="ícone-de-busca" />
               </Form>
-            </FormContainer>
+            </div>
 
             <Redirect>
               <Link to="/register">Clique aqui</Link> para cadastrar uma
@@ -49,12 +55,28 @@ const SearchForm = () => {
             </Redirect>
           </div>
 
+          {resultTitle && (
+            <ContainerTitle>
+              <p>
+                Transações realizadas pelo estabelecimento:
+                <strong> {resultTitle}</strong>
+              </p>
+            </ContainerTitle>
+          )}
+
           {transactions.map((item) => (
-            <div key={item.id}>
-              <p>Cliente: {item.cliente}</p>
-              <p>Preço: {item.valor}</p>
-              <p>Descrição: {item.descricao}</p>
-              <hr />
+            <div className="col-12 col-md-6 offset-md-3">
+              <ContainerList key={item.id}>
+                <p>
+                  <strong>Cliente:</strong> {item.cliente}
+                </p>
+                <p>
+                  <strong>Preço:</strong> {item.valor}
+                </p>
+                <p>
+                  <strong>Descrição:</strong> {item.descricao}
+                </p>
+              </ContainerList>
             </div>
           ))}
         </Container>

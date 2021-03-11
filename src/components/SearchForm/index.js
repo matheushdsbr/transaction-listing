@@ -25,7 +25,7 @@ const SearchForm = () => {
   const searchCNPJ = async () => {
     fetch(`${api.baseUrl}?estabelecimento=${CNPJ}`)
       .then((response) => response.json())
-      .then((data) => (data.message ? 'deu pau' : handleSucess(data)));
+      .then((data) => handleSucess(data));
   };
 
   const handleSubmit = (event) => {
